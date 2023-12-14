@@ -29,13 +29,17 @@ git commit -m "$comment"
 echo "Do you want to change branch? (y/n)"
 read res
 
+# Asking for branch creation
 if [[ "$res" == [yY] ]]; then
+    #creating branch if answer is y
     echo "Enter branch name:"
     read branch
     git checkout -b "$branch"
     git push -u origin "$branch"
 elif [[ "$res" == [nN] ]]; then
+    #pushing to main if answer is no
     git push -u origin main
 else
+    #error messAGE if something else is answer
     echo "Error encountered"
 fi
